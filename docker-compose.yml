@@ -1,0 +1,24 @@
+# Local MySQL for the project. Start with: docker compose up -d
+# The setup script only runs the FIRST time the database starts.
+# To start from scratch: docker compose down -v && docker compose up -d
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: energy-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: raw
+      MYSQL_USER: energy
+      MYSQL_PASSWORD: energy_pw
+    ports:
+      - "3306:3306"          # change the left number if 3306 is already in use
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql/00_setup.sql:/docker-entrypoint-initdb.d/00_setup.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpassword"]
+      interval: 5s
+      retries: 20
+
+volumes:
+  mysql_data:

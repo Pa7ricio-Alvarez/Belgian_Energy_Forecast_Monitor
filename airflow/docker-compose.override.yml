@@ -1,0 +1,14 @@
+# Used by the Astro CLI (`astro dev start`). It makes our code and SQL files visible
+# inside the Airflow container and points it at the MySQL running on your computer.
+services:
+  scheduler:
+    volumes:
+      - ../src:/usr/local/airflow/src
+      - ../sql:/usr/local/airflow/sql
+    environment:
+      PYTHONPATH: /usr/local/airflow/src
+      MYSQL_HOST: host.docker.internal
+      MYSQL_PORT: "3306"
+      MYSQL_USER: energy
+      MYSQL_PASSWORD: energy_pw
+      DATA_DIR: /tmp/energy_data

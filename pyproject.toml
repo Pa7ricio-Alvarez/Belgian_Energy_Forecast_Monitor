@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "energy-monitor"
+version = "0.1.0"
+description = "Pipeline that monitors the accuracy of Belgian wind and solar forecasts"
+requires-python = ">=3.11"
+dependencies = [
+    "polars>=1.0",
+    "requests>=2.31",
+    "pymysql>=1.1",
+    "cryptography>=42",   # needed by PyMySQL to log in to MySQL 8
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
