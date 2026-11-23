@@ -99,4 +99,4 @@ accuracy drops.
 
 ## About
 
-Built by Patricio Alvarez · [LinkedIn] · [email]
+Built by Patricio Alvarez ·[ www.linkedin.com/in/patricio-l-alvarez ]  · [patrick.2697@hotmail.com]
