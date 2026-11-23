@@ -3,6 +3,7 @@
 **Goal:** an automated pipeline that shows how accurate Belgium's wind and solar power
 forecasts are, and when they are most wrong, so that analysts can see it at a glance
 without touching a line of code.
+**Meta-Goal:** a project that is easy to run, easy to understand, and easy to extend to other data engineers seeking mastery of the craft.
 
 ## Why it matters
 
